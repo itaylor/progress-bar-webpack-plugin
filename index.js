@@ -43,7 +43,7 @@ module.exports = function ProgressBarPlugin(options) {
   var lastPercent = 0;
   var lastCounts = '';
 
-  return new webpack.ProgressPlugin(function (percent, msg, counts, numActive, fileName) {
+  return new webpack.ProgressPlugin(function (percent, msg, moduleCounts, numActive, filePath) {
     if (!running && lastPercent !== 0 && !customSummary) {
       stream.write('\n');
     }
@@ -53,9 +53,9 @@ module.exports = function ProgressBarPlugin(options) {
     if (lastPercent !== newPercent || counts !== lastCounts) {
       bar.update(percent, {
         msg: msg,
-        counts: counts,
-        numActive: numActive,
-        fileName: fileName,
+        moduleCounts: moduleCounts || '',
+        numActive: numActive || '',
+        filePath: filePath || '',
       });
       lastPercent = newPercent;
       lastCounts = counts;

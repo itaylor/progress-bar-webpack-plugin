@@ -45,6 +45,9 @@ The `format` option accepts the following tokens:
 - `:elapsed` time elapsed in seconds
 - `:percent` completion percentage
 - `:msg` current progress message
+- `:moduleCounts` current count of active modules, eg: `400/650 modules`
+- `:numActive` current number of active modules, eg: `68 active`
+- `:filePath` file path of current file being evaluated eg: `/some/path/to/your/file.js`
 
 The default format uses the `:bar` and `:percent` tokens.
 
