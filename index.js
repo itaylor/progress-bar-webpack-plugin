@@ -50,7 +50,7 @@ module.exports = function ProgressBarPlugin(options) {
 
     var newPercent = Math.ceil(percent * barOptions.width);
 
-    if (lastPercent !== newPercent || counts !== lastCounts) {
+    if (lastPercent !== newPercent || moduleCounts !== lastCounts) {
       bar.update(percent, {
         msg: msg,
         moduleCounts: moduleCounts || '',
@@ -58,7 +58,7 @@ module.exports = function ProgressBarPlugin(options) {
         filePath: filePath || '',
       });
       lastPercent = newPercent;
-      lastCounts = counts;
+      lastCounts = moduleCounts;
     }
 
     if (!running) {
